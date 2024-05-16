@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 8000;
 app.use(cors());
 // Parse JSON bodies
 app.use(express.json());
-mongoose.connect('mongodb+srv://astiksharma26:CihmPlAF8JzWg5u8@cluster0.fpn76og.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0', {
+mongoose.connect(process.env.DBURL, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
@@ -27,8 +27,8 @@ const transporter = nodemailer.createTransport({
     port: 587, 
     secure: process.env.SECURE == 'true', 
     auth: {
-      user: "astiksharma26@gmail.com", 
-      pass: "teen vrai uvwm pjva"
+      user: process.env.USER, 
+      pass: prcocess.env.PASS
     },
   });
   
